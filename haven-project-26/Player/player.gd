@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var player_collision_shape: CollisionShape2D = $CollisionShape2D
 
 var movement_speed : int = 150
+var player_health : int = 100
 
 var jump_height : int = -3000
 var can_jump : bool = true
