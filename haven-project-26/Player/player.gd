@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var movement_speed : int = 150
+var player_health : int = 100
+
 var moving : bool = false
 
 var jump_height : int = -5000
