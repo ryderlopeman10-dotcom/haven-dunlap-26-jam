@@ -67,5 +67,10 @@ func _on_timer_timeout():
 	is_jumping = false
 	velocity.y = 0
 	player_collision_shape.disabled = false
+	$Bang.visible = true
+	$bangTimer.start()
 	
 	move_and_slide()
+	
+func _on_bang_timer_timeout():
+	$Bang.visible = false
