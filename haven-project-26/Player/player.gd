@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @onready var falling_timer: Timer = $"Falling Timer"
@@ -10,10 +11,14 @@ var player_health : int = 100
 
 var moving : bool = false
 
-var jump_height : int = -5000
+var jump_height : int = -10000
 var can_jump : bool = true
+var can_jump2 : bool = true
 var is_jumping : bool = false
 var first_jump : bool = false
+
+var damage : float = 2.5
+var in_enemy : bool = false
 
 func _process(delta):
 	if Input.is_action_pressed("Quit"):
@@ -30,7 +35,7 @@ func topdown_movement(delta):
 	var dir_x := Input.get_axis("Left", "Right")
 	var dir_y := Input.get_axis("Up", "Down")
 	
-	if Input.is_action_just_pressed("Jump"):
+	if Input.is_action_just_pressed("Jump") and can_jump2:
 		velocity.y = jump_height
 		is_jumping = true
 		first_jump = true
@@ -54,12 +59,15 @@ func jump(delta):
 	if not is_jumping:
 		return
 	else:
-		player_collision_shape.disabled = true
-		
-		if first_jump:
-			first_jump = false
-			falling_timer.start()
-		velocity += get_gravity() / 3.25
+		if can_jump2:
+			can_jump2 = false
+			player_collision_shape.disabled = true
+			
+			if first_jump:
+				first_jump = false
+				falling_timer.start()
+				
+			velocity += get_gravity() / 3.25
 		
 	move_and_slide()
 
@@ -67,5 +75,14 @@ func _on_timer_timeout():
 	is_jumping = false
 	velocity.y = 0
 	player_collision_shape.disabled = false
+	can_jump = true
+	can_jump2 = true
 	
 	move_and_slide()
+
+func attack():
+	if in_enemy and is_jumping:
+		velocity.y = jump_height
+		is_jumping = true
+		first_jump = true
+		

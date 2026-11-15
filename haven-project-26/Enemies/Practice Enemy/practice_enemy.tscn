@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cgxkpnwcu6yu8"]
+
+[ext_resource type="Script" uid="uid://dnw0ypevagpye" path="res://Enemies/Practice Enemy/practice_enemy.gd" id="1_gwojk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7r1ys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7r1ys"]
+size = Vector2(18, 29)
+
+[node name="Practice Enemy" type="Area2D" unique_id=1641488180]
+script = ExtResource("1_gwojk")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=36767814]
+scale = Vector2(15.250001, 25.75)
+mesh = SubResource("BoxMesh_7r1ys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=95565273]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7r1ys")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

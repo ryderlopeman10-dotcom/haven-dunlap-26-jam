@@ -68,7 +68,7 @@ position = Vector2(-1.5, -1)
 shape = SubResource("RectangleShape2D_irdi4")
 
 [node name="Falling Timer" type="Timer" parent="." unique_id=1928887462]
-wait_time = 0.5
+wait_time = 0.55
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=490995291]
