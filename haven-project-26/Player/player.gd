@@ -34,3 +34,8 @@ func move(delta):
 func attack():
 	if not is_on_floor() and can_attack and Input.is_action_just_pressed("Jump"):
 		velocity.y = jump_height
+		$WindBurst.visible = true
+		$WindBurstTimer.start()
+		
+func _on_wind_burst_timer_timeout() -> void:
+	$WindBurst.visible = false
