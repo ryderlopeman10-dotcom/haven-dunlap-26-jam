@@ -96,5 +96,8 @@ offset_bottom = 87.0
 text = "HEALTH:"
 label_settings = SubResource("LabelSettings_gwnis")
 
+[node name="DeathScreen" type="Sprite2D" parent="." unique_id=1587474544]
+visible = false
+
 [connection signal="timeout" from="Falling Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="bangTimer" to="." method="_on_bang_timer_timeout"]
