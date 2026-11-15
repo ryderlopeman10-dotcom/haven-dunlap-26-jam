@@ -3,9 +3,12 @@ extends CharacterBody2D
 @onready var falling_timer: Timer = $"Falling Timer"
 @onready var player_collision_shape: CollisionShape2D = $CollisionShape2D
 
-var movement_speed : int = 150
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-var jump_height : int = -3000
+var movement_speed : int = 150
+var moving : bool = false
+
+var jump_height : int = -5000
 var can_jump : bool = true
 var is_jumping : bool = false
 var first_jump : bool = false
@@ -31,13 +34,17 @@ func topdown_movement(delta):
 		first_jump = true
 	
 	if dir_x:
+		moving = true
 		velocity.x = dir_x * movement_speed
+	else:
+		moving = false
 	
 	if is_jumping:
 		return
 	
 	if dir_y:
-			velocity.y = dir_y * movement_speed
+		moving = true
+		velocity.y = dir_y * movement_speed
 
 	move_and_slide()
 
@@ -53,7 +60,7 @@ func jump(delta):
 		velocity += get_gravity() / 3.25
 		
 	move_and_slide()
-	
+
 func _on_timer_timeout():
 	is_jumping = false
 	velocity.y = 0
