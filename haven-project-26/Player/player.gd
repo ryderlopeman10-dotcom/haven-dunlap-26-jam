@@ -3,13 +3,18 @@ extends CharacterBody2D
 var accel_x : int = 25
 var movement_speed : int = 150
 
-var jump_height : int = -350
+var jump_height : int = -400
+
+var can_attack : bool = false
+
+var damage : int = 5
 
 func _process(delta):
 	if Input.is_action_just_pressed("Quit"):
 		get_tree().quit()
 
 	move(delta)
+	attack()
 
 func move(delta):
 	velocity += get_gravity() * delta
@@ -25,3 +30,7 @@ func move(delta):
 		velocity.y = jump_height
 
 	move_and_slide()
+
+func attack():
+	if not is_on_floor() and can_attack and Input.is_action_just_pressed("Jump"):
+		velocity.y = jump_height

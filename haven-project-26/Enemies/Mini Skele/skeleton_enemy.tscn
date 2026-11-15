@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d1vuwmn571apc"]
+
+[ext_resource type="Script" uid="uid://bxj05q3428hsv" path="res://Enemies/Mini Skele/skeleton_enemy.gd" id="1_m0ptq"]
+[ext_resource type="Texture2D" uid="uid://5s4fur57eh36" path="res://Player/pixil-frame-0.png" id="2_fr0po"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7r1ys"]
+radius = 11.045361
+
+[node name="Skeleton Enemy" type="Area2D" unique_id=44557244]
+script = ExtResource("1_m0ptq")
+
+[node name="PixilFrame0" type="Sprite2D" parent="." unique_id=767619851]
+position = Vector2(0, -8)
+texture = ExtResource("2_fr0po")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1134641915]
+position = Vector2(2, -4)
+shape = SubResource("CircleShape2D_7r1ys")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
