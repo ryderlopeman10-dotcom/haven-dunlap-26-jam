@@ -1,78 +1,27 @@
 extends CharacterBody2D
 
-@onready var falling_timer: Timer = $"Falling Timer"
-@onready var player_collision_shape: CollisionShape2D = $CollisionShape2D
-
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-
+var accel_x : int = 25
 var movement_speed : int = 150
-var player_health : int = 100
 
-var moving : bool = false
-
-var jump_height : int = -5000
-var can_jump : bool = true
-var is_jumping : bool = false
-var first_jump : bool = false
+var jump_height : int = -350
 
 func _process(delta):
-	if Input.is_action_pressed("Quit"):
+	if Input.is_action_just_pressed("Quit"):
 		get_tree().quit()
-	$HealthDisplay.text = "HEALTH: " + str(player_health)
 
-func _physics_process(delta):
-	topdown_movement(delta)
-	jump(delta)
+	move(delta)
 
-func topdown_movement(delta):
-	var dir := Input.get_vector("Left", "Right", "Up", "Down")
-	velocity = dir * movement_speed
-	
-	var dir_x := Input.get_axis("Left", "Right")
-	var dir_y := Input.get_axis("Up", "Down")
-	
-	if Input.is_action_just_pressed("Jump"):
+func move(delta):
+	velocity += get_gravity() * delta
+
+	var direction = Input.get_axis("Left", "Right")
+
+	if direction:
+		velocity.x = move_toward(velocity.x, movement_speed * direction, accel_x)
+	else:
+		velocity.x = move_toward(velocity.x, 0, accel_x)
+
+	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = jump_height
-		is_jumping = true
-		first_jump = true
-	
-	if dir_x:
-		moving = true
-		velocity.x = dir_x * movement_speed
-	else:
-		moving = false
-	
-	if is_jumping:
-		return
-	
-	if dir_y:
-		moving = true
-		velocity.y = dir_y * movement_speed
 
 	move_and_slide()
-
-func jump(delta):
-	if not is_jumping:
-		return
-	else:
-		player_collision_shape.disabled = true
-		
-		if first_jump:
-			first_jump = false
-			falling_timer.start()
-		velocity += get_gravity() / 3.25
-		
-	move_and_slide()
-
-func _on_timer_timeout():
-	is_jumping = false
-	velocity.y = 0
-	player_collision_shape.disabled = false
-	$Bang.visible = true
-	$bangTimer.start()
-	
-	move_and_slide()
-	
-func _on_bang_timer_timeout():
-	$Bang.visible = false
-	
