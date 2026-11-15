@@ -31,13 +31,13 @@ func move(delta):
 	move_and_slide()
 
 func attack(enemy: Enemy):
-	if not is_on_floor() and can_attack and Input.is_action_just_pressed("Jump"):
+	if not is_on_floor() and can_attack and Input.is_action_pressed("Jump"):
 		can_attack = false
 		velocity.y = jump_height
 		enemy.take_damage()
 		
-		$WindBurst.visible = true
+		"""$WindBurst.visible = true
 		$WindBurstTimer.start()
 		
 func _on_wind_burst_timer_timeout() -> void:
-	$WindBurst.visible = false
+	$WindBurst.visible = false"""

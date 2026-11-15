@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfwjs5v7x8mrb"]
 
-[ext_resource type="Texture2D" uid="uid://db3khscnb6g2d" path="res://pixil-frame-0.png" id="1_sn1xx"]
+[ext_resource type="Texture2D" uid="uid://db3khscnb6g2d" path="res://random/pixil-frame-0.png" id="1_sn1xx"]
 [ext_resource type="PackedScene" uid="uid://ccpj8r6a7w0c0" path="res://Player/player.tscn" id="2_pojwb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4xfrm"]

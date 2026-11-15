@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://douct5wj5ie1k"]
 
 [ext_resource type="PackedScene" uid="uid://ccpj8r6a7w0c0" path="res://Player/player.tscn" id="1_3dogw"]
-[ext_resource type="Texture2D" uid="uid://4agx8eao0akq" path="res://icon.svg" id="1_r5l72"]
+[ext_resource type="Texture2D" uid="uid://4agx8eao0akq" path="res://random/icon.svg" id="1_r5l72"]
 [ext_resource type="PackedScene" uid="uid://d1vuwmn571apc" path="res://Enemies/Mini Skele/skeleton_enemy.tscn" id="3_50ct6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7r1ys"]
@@ -14,7 +14,7 @@ position = Vector2(184, 277)
 texture = ExtResource("1_r5l72")
 
 [node name="Player" parent="." unique_id=168181456 instance=ExtResource("1_3dogw")]
-position = Vector2(112, 307)
+position = Vector2(-27, 318)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2007033843]
 
@@ -22,4 +22,4 @@ position = Vector2(112, 307)
 shape = SubResource("WorldBoundaryShape2D_7r1ys")
 
 [node name="Skeleton Enemy" parent="." unique_id=44557244 instance=ExtResource("3_50ct6")]
-position = Vector2(42, 280)
+position = Vector2(60, 332)

@@ -13,7 +13,7 @@ config_version=5
 config/name="Haven Project 26"
 run/main_scene="uid://douct5wj5ie1k"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://random/icon.svg"
 
 [autoload]
 
