@@ -18,6 +18,7 @@ var first_jump : bool = false
 func _process(delta):
 	if Input.is_action_pressed("Quit"):
 		get_tree().quit()
+	$HealthDisplay.text = "HEALTH: " + str(player_health)
 
 func _physics_process(delta):
 	topdown_movement(delta)
@@ -74,3 +75,4 @@ func _on_timer_timeout():
 	
 func _on_bang_timer_timeout():
 	$Bang.visible = false
+	
