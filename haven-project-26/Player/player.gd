@@ -20,7 +20,7 @@ func move(delta):
 
 	var direction = Input.get_axis("Left", "Right")
 
-	if direction:
+	if direction: 
 		velocity.x = move_toward(velocity.x, movement_speed * direction, accel_x)
 	else:
 		velocity.x = move_toward(velocity.x, 0, accel_x)
