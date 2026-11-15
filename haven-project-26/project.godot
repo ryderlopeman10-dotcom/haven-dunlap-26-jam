@@ -15,12 +15,20 @@ run/main_scene="uid://douct5wj5ie1k"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*uid://h4vwrgv1nep4"
+
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/mode=3
 window/stretch/mode="viewport"
+
+[global_group]
+
+Enemy=""
 
 [input]
 

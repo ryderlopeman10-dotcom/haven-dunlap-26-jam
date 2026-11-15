@@ -1,16 +1,22 @@
+class_name Enemy
 extends Area2D
 
 var health : int = 10
 var damage : int = 2
 var move_speed : int = 0
 
+func _process(delta: float) -> void:
+	if health <= 0:
+		queue_free()
+
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		body.can_attack = true
+		body.attack(self)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		body.can_attack = false
 
 func take_damage():
-	pass
+	health -= Globals.player_dmg

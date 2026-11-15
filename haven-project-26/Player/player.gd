@@ -14,7 +14,6 @@ func _process(delta):
 		get_tree().quit()
 
 	move(delta)
-	attack()
 
 func move(delta):
 	velocity += get_gravity() * delta
@@ -31,6 +30,9 @@ func move(delta):
 
 	move_and_slide()
 
-func attack():
+func attack(enemy: Enemy):
 	if not is_on_floor() and can_attack and Input.is_action_just_pressed("Jump"):
+		can_attack = false
 		velocity.y = jump_height
+		enemy.take_damage()
+		
