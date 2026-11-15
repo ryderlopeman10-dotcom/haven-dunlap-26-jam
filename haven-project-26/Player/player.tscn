@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ccpj8r6a7w0c0"]
+
+[ext_resource type="Script" uid="uid://bkp18v3ffcgem" path="res://Player/player.gd" id="1_l8h54"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7r1ys"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7r1ys"]
+radius = 29.274563
+
+[node name="Player" type="CharacterBody2D" unique_id=168181456]
+script = ExtResource("1_l8h54")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1131507051]
+scale = Vector2(36.5, 36.5)
+mesh = SubResource("BoxMesh_7r1ys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1173162886]
+shape = SubResource("CircleShape2D_7r1ys")
+
+[node name="Falling Timer" type="Timer" parent="." unique_id=1928887462]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="Falling Timer" to="." method="_on_timer_timeout"]
