@@ -52,20 +52,20 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_irdi4"]
-size = Vector2(23, 12)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_fhl08"]
+points = PackedVector2Array(9, 0, 10, 1, 10, 4, 8.75, 5, 7, 6, -7.75, 6, -8, 5, -9, 4, -9.75, 4, -9.75, 0, 0, -8, 6, -5)
 
 [node name="Player" type="CharacterBody2D" unique_id=168181456]
 script = ExtResource("1_l8h54")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2021939238]
-position = Vector2(-2.5, -4.5)
+position = Vector2(-1, -4)
 sprite_frames = SubResource("SpriteFrames_7r1ys")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1173162886]
-position = Vector2(-1.5, -1)
-shape = SubResource("RectangleShape2D_irdi4")
+position = Vector2(1, 0)
+shape = SubResource("ConvexPolygonShape2D_fhl08")
 
 [node name="Falling Timer" type="Timer" parent="." unique_id=1928887462]
 wait_time = 0.5
