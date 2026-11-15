@@ -1,77 +1,20 @@
 [gd_scene format=3 uid="uid://ccpj8r6a7w0c0"]
 
-[ext_resource type="Script" uid="uid://bkp18v3ffcgem" path="res://Player/player.gd" id="1_l8h54"]
-[ext_resource type="Texture2D" uid="uid://5s4fur57eh36" path="res://Player/pixil-frame-0.png" id="2_btcbx"]
-[ext_resource type="Texture2D" uid="uid://mpib7crvfekb" path="res://Player/slime.png" id="3_gwnis"]
+[ext_resource type="PackedScene" uid="uid://ccpj8r6a7w0c0" path="res://Player/player.tscn" id="1_l8h54"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k53q1"]
-atlas = ExtResource("2_btcbx")
-region = Rect2(0, 0, 25, 19)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7r1ys"]
+distance = -361.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fhl08"]
-atlas = ExtResource("3_gwnis")
-region = Rect2(0, 0, 25, 19)
+[node name="Test Scene" type="Node2D" unique_id=2086546632]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtle1"]
-atlas = ExtResource("3_gwnis")
-region = Rect2(25, 0, 25, 19)
+[node name="Player" parent="." unique_id=168181456 instance=ExtResource("1_l8h54")]
+position = Vector2(261, 270)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_od3ui"]
-atlas = ExtResource("3_gwnis")
-region = Rect2(50, 0, 25, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_00tjw"]
-atlas = ExtResource("3_gwnis")
-region = Rect2(75, 0, 25, 19)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7r1ys"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k53q1")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fhl08")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vtle1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_od3ui")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_00tjw")
-}],
-"loop": 1,
-"name": &"walk",
-"speed": 8.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_irdi4"]
-size = Vector2(23, 12)
-
-[node name="Player" type="CharacterBody2D" unique_id=168181456]
-script = ExtResource("1_l8h54")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2021939238]
-position = Vector2(-2.5, -4.5)
-sprite_frames = SubResource("SpriteFrames_7r1ys")
-animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1173162886]
-position = Vector2(-1.5, -1)
-shape = SubResource("RectangleShape2D_irdi4")
-
-[node name="Falling Timer" type="Timer" parent="." unique_id=1928887462]
-wait_time = 0.55
-one_shot = true
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=490995291]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=515581693]
+position = Vector2(261, 271)
 zoom = Vector2(2, 2)
 
-[connection signal="timeout" from="Falling Timer" to="." method="_on_timer_timeout"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=99395618]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=17535119]
+shape = SubResource("WorldBoundaryShape2D_7r1ys")

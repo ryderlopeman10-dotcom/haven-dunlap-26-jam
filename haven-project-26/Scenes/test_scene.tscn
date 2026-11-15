@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://douct5wj5ie1k"]
 
 [ext_resource type="PackedScene" uid="uid://ccpj8r6a7w0c0" path="res://Player/player.tscn" id="1_3dogw"]
-[ext_resource type="Texture2D" uid="uid://db3khscnb6g2d" path="res://pixil-frame-0.png" id="2_r5l72"]
-[ext_resource type="PackedScene" uid="uid://cgxkpnwcu6yu8" path="res://Enemies/Practice Enemy/practice_enemy.tscn" id="3_50ct6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7r1ys"]
+distance = -361.0
 
 [node name="Test Scene" type="Node2D" unique_id=2086546632]
 
-[node name="PixilFrame0" type="Sprite2D" parent="." unique_id=698444254]
-position = Vector2(258, 264)
-texture = ExtResource("2_r5l72")
-
 [node name="Player" parent="." unique_id=168181456 instance=ExtResource("1_3dogw")]
-position = Vector2(315, 272)
+position = Vector2(261, 270)
 
-[node name="Practice Enemy" parent="." unique_id=1641488180 instance=ExtResource("3_50ct6")]
-position = Vector2(405, 297)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=515581693]
+position = Vector2(261, 271)
+zoom = Vector2(2, 2)
 
-[connection signal="body_exited" from="Practice Enemy" to="Practice Enemy" method="_on_body_exited"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=99395618]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=17535119]
+shape = SubResource("WorldBoundaryShape2D_7r1ys")
