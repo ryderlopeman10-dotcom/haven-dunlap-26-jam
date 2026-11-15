@@ -35,9 +35,3 @@ func attack(enemy: Enemy):
 		can_attack = false
 		velocity.y = jump_height
 		enemy.take_damage()
-		
-		"""$WindBurst.visible = true
-		$WindBurstTimer.start()
-		
-func _on_wind_burst_timer_timeout() -> void:
-	$WindBurst.visible = false"""
