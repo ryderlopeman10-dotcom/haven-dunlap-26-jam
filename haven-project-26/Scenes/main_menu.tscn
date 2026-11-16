@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bmdqry4bv186n"]
+
+[ext_resource type="Script" uid="uid://o00yo6y87i3y" path="res://main_menu.gd" id="1_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://b1nfhocwsufca" path="res://art/image_2026-11-15_170827525.png" id="2_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://5s4fur57eh36" path="res://Player/pixil-frame-0.png" id="3_n45e2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpa4t"]
+bg_color = Color(0.33613595, 0.7033733, 7.70092e-07, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt3mi"]
+bg_color = Color(0.3372549, 0.7019608, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_bt3mi"]
+font_size = 50
+font_color = Color(0.99215686, 0.7058824, 0, 1)
+outline_size = 5
+outline_color = Color(5.0296635e-06, 0.6483389, 0.15144229, 1)
+shadow_size = 15
+
+[node name="MainMenu" type="Control" unique_id=1690062464]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ehe0")
+
+[node name="Button" type="Button" parent="." unique_id=2117323482]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -319.0
+offset_top = -105.0
+offset_right = -159.0
+offset_bottom = -34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99215686, 0.7058824, 0, 1)
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_bpa4t")
+text = "Play Game"
+
+[node name="Button2" type="Button" parent="." unique_id=783541264]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -321.0
+offset_top = -194.0
+offset_right = -161.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.99215686, 0.7058824, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bt3mi")
+text = "Credits"
+
+[node name="Label" type="Label" parent="." unique_id=1810814330]
+layout_mode = 1
+offset_right = 131.0
+offset_bottom = 36.0
+text = "Slime Bounce Back"
+label_settings = SubResource("LabelSettings_bt3mi")
+
+[node name="Image20261115170827525" type="Sprite2D" parent="." unique_id=885703514]
+position = Vector2(523, 207)
+scale = Vector2(4.785714, 4.7857146)
+texture = ExtResource("2_ce3w2")
+
+[node name="PixilFrame0" type="Sprite2D" parent="." unique_id=334892420]
+position = Vector2(291.00003, 155)
+scale = Vector2(8.710526, 8.710526)
+texture = ExtResource("3_n45e2")
+
+[connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_credits_pressed"]

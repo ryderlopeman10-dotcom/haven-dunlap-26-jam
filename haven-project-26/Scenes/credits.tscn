@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bohkqywidemrm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt3mi"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Credits" type="Node2D" unique_id=1041070262]
+
+[node name="Label" type="Label" parent="." unique_id=387784214]
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_bt3mi")
+text = "Lead Artist: Angus
+Lead Programmer: Ryder
+Co Programmer: Griffin"
+horizontal_alignment = 1
