@@ -27,6 +27,9 @@ shadow_size = 15
 [sub_resource type="LabelSettings" id="LabelSettings_7r1ys"]
 font = ExtResource("2_n45e2")
 
+[sub_resource type="LabelSettings" id="LabelSettings_4xfrm"]
+font = ExtResource("2_n45e2")
+
 [node name="MainMenu" type="Control" unique_id=1690062464]
 layout_mode = 3
 anchors_preset = 15
@@ -89,5 +92,17 @@ texture = ExtResource("2_ce3w2")
 position = Vector2(291.00003, 155)
 scale = Vector2(8.710526, 8.710526)
 texture = ExtResource("3_n45e2")
+
+[node name="Label2" type="Label" parent="." unique_id=1263896258]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 307.0
+offset_right = 316.0
+offset_bottom = 382.0
+text = "Lead Programmer: Ryder
+Lead Artist: Angus
+Lead Creativity/Co-Programmer: Griffin"
+label_settings = SubResource("LabelSettings_4xfrm")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
