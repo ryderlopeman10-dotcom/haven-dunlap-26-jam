@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://d1vuwmn571apc"]
 
 [ext_resource type="Script" uid="uid://bxj05q3428hsv" path="res://Enemies/Mini Skele/skeleton_enemy.gd" id="1_m0ptq"]
-[ext_resource type="Texture2D" uid="uid://dtrc0t3nq4qxg" path="res://art/image_2026-11-15_170900492.png" id="2_fr0po"]
+[ext_resource type="Texture2D" uid="uid://b1nfhocwsufca" path="res://art/image_2026-11-15_170827525.png" id="2_fr0po"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnis"]
-size = Vector2(46, 44)
+size = Vector2(54, 44)
 
 [node name="Skeleton Enemy" type="Area2D" unique_id=44557244 groups=["Enemy"]]
 script = ExtResource("1_m0ptq")

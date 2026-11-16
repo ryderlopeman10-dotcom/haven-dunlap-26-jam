@@ -68,15 +68,12 @@ animation = &"idle"
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_1yqkm")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=490995291]
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
-position_smoothing_speed = 2.5
-
-[node name="WindBurst" type="Sprite2D" parent="." unique_id=1389797071]
+[node name="Burst" type="Sprite2D" parent="." unique_id=1873726482]
 visible = false
-position = Vector2(1, 5)
+position = Vector2(2, 5)
 texture = ExtResource("4_gwnis")
 
-[node name="BurstTimer" type="Timer" parent="." unique_id=1805182779]
-wait_time = 0.2
+[node name="Timer" type="Timer" parent="." unique_id=1340858757]
+wait_time = 0.261
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

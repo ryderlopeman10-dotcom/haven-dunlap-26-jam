@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://m8j7aa3a6578"]
+
+[ext_resource type="PackedScene" uid="uid://ccpj8r6a7w0c0" path="res://Player/player.tscn" id="1_onhj5"]
+[ext_resource type="Texture2D" uid="uid://b6dylob4bpesk" path="res://art/image_2026-11-15_175941258.png" id="1_yia4t"]
+[ext_resource type="PackedScene" uid="uid://d1vuwmn571apc" path="res://Enemies/Mini Skele/skeleton_enemy.tscn" id="2_nd6ix"]
+[ext_resource type="Script" uid="uid://cc52qk25lwjxm" path="res://Enemies/Mini Skele/label.gd" id="3_nd6ix"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7r1ys"]
+distance = -71.0
+
+[node name="Game" type="Node2D" unique_id=1220083878]
+
+[node name="Image20261115175941258" type="Sprite2D" parent="." unique_id=1974251029]
+position = Vector2(8, 5)
+scale = Vector2(1.0384616, 1.0384616)
+texture = ExtResource("1_yia4t")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=814015054]
+zoom = Vector2(2, 2)
+
+[node name="Player" parent="." unique_id=168181456 instance=ExtResource("1_onhj5")]
+position = Vector2(-1, -62)
+
+[node name="Skeleton Enemy" parent="." unique_id=44557244 instance=ExtResource("2_nd6ix")]
+position = Vector2(0, 67)
+
+[node name="Skeleton Enemy2" parent="." unique_id=1801587177 instance=ExtResource("2_nd6ix")]
+position = Vector2(136, 66)
+
+[node name="Deathbound" type="Area2D" parent="." unique_id=1976344128]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathbound" unique_id=1072603736]
+position = Vector2(1, -4)
+shape = SubResource("WorldBoundaryShape2D_7r1ys")
+
+[node name="Label" type="Label" parent="." unique_id=1887467948]
+offset_left = -152.0
+offset_top = -85.0
+offset_right = -91.0
+offset_bottom = -62.0
+text = "Score: 0"
+script = ExtResource("3_nd6ix")
