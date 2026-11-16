@@ -57,7 +57,3 @@ func attack(enemy: Enemy):
 
 func _on_timer_timeout() -> void:
 	$Burst.visible = false
-
-
-func _on_deathbound_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.

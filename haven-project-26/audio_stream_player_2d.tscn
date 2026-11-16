@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://sk0l7502nn5h"]
+
+[ext_resource type="AudioStream" uid="uid://dbe2dgfodj5tv" path="res://Player/velariomusic-soothing-611105.mp3" id="1_e0u7o"]
+[ext_resource type="Script" uid="uid://fyf0vcui8r1i" path="res://audio_stream_player_2d.gd" id="2_yrwi3"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=303368215]
+stream = ExtResource("1_e0u7o")
+autoplay = true
+script = ExtResource("2_yrwi3")

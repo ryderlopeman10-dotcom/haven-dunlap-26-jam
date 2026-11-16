@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bxj05q3428hsv" path="res://Enemies/Mini Skele/skeleton_enemy.gd" id="1_m0ptq"]
 [ext_resource type="Texture2D" uid="uid://b1nfhocwsufca" path="res://art/image_2026-11-15_170827525.png" id="2_fr0po"]
+[ext_resource type="AudioStream" uid="uid://cs1vu5bgj55hf" path="res://freesound_community-bones-2-88481.mp3" id="3_1yqkm"]
+[ext_resource type="AudioStream" uid="uid://dbm8hghinggm5" path="res://universfield-bone-crack-3-121580.mp3" id="4_3puiv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnis"]
 size = Vector2(54, 44)
@@ -16,6 +18,12 @@ texture = ExtResource("2_fr0po")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1134641915]
 position = Vector2(-2, -22)
 shape = SubResource("RectangleShape2D_gwnis")
+
+[node name="10_" type="AudioStreamPlayer2D" parent="." unique_id=1673013447]
+stream = ExtResource("3_1yqkm")
+
+[node name="90" type="AudioStreamPlayer2D" parent="." unique_id=1220460299]
+stream = ExtResource("4_3puiv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

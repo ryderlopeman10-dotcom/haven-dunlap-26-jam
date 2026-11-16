@@ -20,6 +20,7 @@ config/icon="res://random/icon.svg"
 Globals="*uid://h4vwrgv1nep4"
 SkeletonEnemy="*uid://bxj05q3428hsv"
 EnemySpawner="*uid://darap8hjbet88"
+AudioStreamPlayer2d="*uid://fyf0vcui8r1i"
 
 [display]
 

@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dgoq5faw0plgx" path="res://random/boldspixels.ttf" id="2_n45e2"]
 [ext_resource type="Texture2D" uid="uid://5s4fur57eh36" path="res://Player/pixil-frame-0.png" id="3_n45e2"]
 [ext_resource type="Script" uid="uid://v08vdqk6w2px" path="res://Scenes/label.gd" id="3_opfnp"]
+[ext_resource type="AudioStream" uid="uid://dbe2dgfodj5tv" path="res://Player/velariomusic-soothing-611105.mp3" id="6_opfnp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7r1ys"]
 
@@ -104,5 +105,9 @@ Lead Artist: Angus
 Lead Creativity/Co-Programmer: Griffin"
 label_settings = SubResource("LabelSettings_4xfrm")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2005128063]
+stream = ExtResource("6_opfnp")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_start_pressed"]

@@ -3,6 +3,9 @@ extends Area2D
 
 @onready var gogo: Sprite2D = $Image20261115170900492
 
+@onready var _10_: AudioStreamPlayer2D = $"10_"
+@onready var _90: AudioStreamPlayer2D = $"90"
+
 var health : int = 10
 var damage : int = 2
 var move_speed : int = 0
@@ -10,6 +13,7 @@ var move_speed : int = 0
 
 func _process(delta: float) -> void:
 	if health <= 0:
+		Globals.enemy_amount -= 1
 		queue_free()
 		Globals.update_score()
 
@@ -24,4 +28,6 @@ func _on_body_exited(body: Node2D) -> void:
 		body.can_attack = false
 
 func take_damage():
+	_90.play()
+	
 	health -= Globals.player_dmg
